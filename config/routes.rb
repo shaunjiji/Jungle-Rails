@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
   root to: 'products#index'
 
   resources :about, only: [:index]
@@ -19,6 +20,9 @@ Rails.application.routes.draw do
     resources :categories
   end
 
+  resource :users, only: [:new] do
+    post   :create
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
